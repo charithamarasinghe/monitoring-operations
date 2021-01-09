@@ -112,6 +112,6 @@ public class SatelliteInfo {
     }
 
     public enum Type {
-        ORBITED, DE_ORBITED, CONSTELLATED, DECOMMISSIONED;
+        LAUNCHED, ORBITED, DE_ORBITED, CONSTELLATED, DECOMMISSIONED;
     }
 }
