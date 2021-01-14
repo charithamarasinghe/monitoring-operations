@@ -13,6 +13,11 @@ public class MonitoringOperationsController {
     @Autowired
     MonitoringOperationsService monitoringOperationsService;
 
+    @GetMapping("/healthCheck")
+    public String healthCheck() {
+        return "SUCCESS";
+    }
+
     @GetMapping("/getAllSatPosInfo")
     public Iterable<SatellitePosInfo> getAllConstellationSatInfo() {
         return monitoringOperationsService.getAllSatPosInfo();
