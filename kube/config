@@ -1,34 +1,10 @@
 apiVersion: v1
 clusters:
 - cluster:
-    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJeE1ERXhNREl5TVRZME5sb1hEVE14TURFd09ESXlNVFkwTmxvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTXZrCkorL0oxQVpaVjA5UERqTFcyTHQxejlsc0RXZWNuSUw1TVozZU8rSVJpb25oWm82cExkQlJmdGUxRnltcnZXcFMKVmxyVDFGQXVLYXFNSWwzZzkyVytVcERRaEkyOVkrUGxEUitUVDlwVDg4ZXE5bzdpdm9NeXd2ZWJUYlFGZmc1MApmRE9tbnBlVkNuK3ZaRmlBSkxWS0EwNTZZMlkzemJlemFHUXN1cHJUUjlOKzhDUUFBQk5mbTVqTjFGVHZsZTBuCkRHYm5aSGUwTzl2WDZsREM1VWVuODFKZUF3VSsxYWpuM2EvaXlId3dxZnlMZEI1L1QwMGJETWxxcE1JVVlBVmMKOFpjS25BZmM5dUdsTDF0NFpEV0ZtVVZ1SExDMk5KL1JkYmFOVjNucXBZYlNnSFd4OEFXRHcrT1FxdXp5VklVMApYUjBHWmd3RWp1L25JWmhCWkowQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFNV1NPUmgxRXdnTUN3ZkJOYkdLMTRMUmRIZVoKQ2d6bFpyT0d0dnFpaHNZdEJZWmJHYUp0ZlFCNTcrUmo3UnlzWmVnSUEyVmkyK24yTWRYSk5IUWRCOWxONXYvTQpoOGU2d0xDRE1EZEVGVTFQQ0FCYzJyS0s2S0xtSmFuZzdEaFVHT3NTVWJuRnFwcnoxMkhnbU5Pcm5VZEdPR2hNCk4wcFlRVVoydWZPVEp4bm9PbVFDb2xoL1JhejVVUnhGc0pMTFpCVmY5TzlnMm1zTHlxZm5xZWh2ZzRsM1ZScTAKYmdSVytrKytNb0JiSzRRV0wxS0dmWUZLdHI5MjVWb3dMeFdPNW9nUVhyMGMwZGQrblZMT2xnSGxsSWZ6Q21lRApsaHVlN09ScC9tZS8zd04xTkRTVDNUY2Z6MU84bDRDZlAyTk54S0ZyZkV0SVRGcmlFL3RzS1V1M3Jubz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
-    server: https://3947706845D6A77A468BAD59E66BA985.gr7.us-east-2.eks.amazonaws.com
-  name: iit-lab-cluster.us-east-2.eksctl.io
-- cluster:
-    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01USXhNekV5TlRZek0xb1hEVE13TVRJeE1URXlOVFl6TTFvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTVVWCkloeDBuTFRyWXNNVjRkL3BBelgweXQ1SnJ2TjRJTTJtNHJCTjVpaks4M3hYSmMzVFJIT1RUcDlZS0hyWHpZalUKV1Z5eVN2K3l5Z1o2Yk1JTkNiWmlVZU1sa09MRUtQNSs5cUREV2JYWHFtdkFUTVRRMmtpZVd4UU9SbFNrOHBqcwp1ZSs4VUJEZVU2RExobThtbmF5VndKalVHcG1IMEphZVg3dEZFNXEwR0RRWWp1ZjYwNEp6NENrRVJtRW8wQ1hVCk56VWFlVU9Ka2lCbnVybTE0YnFYRzJKdmN0cUc2aUdHVFdKeFIzcEVPSmJpUmhFdndEQjdiMHJOVWNTSi9BMDIKUzhKZnlQSzc2dk1Ld2N3b0U5S1F3SFNPSHFyQUIzK1NzeHdRTEVab1g4NGUvVE1JYjJSalFUMjNFbDhvaHJuVgo4SGFPVlBXMTdIbGw5ZnJEQ3E4Q0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFJM0gvY1ZiSWxnWG4yTkdPeWFYaC82ZEZXekIKRnNmc0kyN0VpU2ltTEZyUndiVXBVZW8zbmUvbmhYSUVPQW9HRG1pNEZRZzVQaWpZRnArQWdMaXBWWE43K1h2egpvbTRRUzFTMXNVcXYwdkZzSE4wUWpicjV4TXNKWVh0MGk4MlhiWGkzR3Q5UWUzUm9COHg4M3NpVE9lZU9WSmprCmpWYjFSYWpzbjdmNm1uYjVWc2dDTTh2bythMGRBaldGdy90dStxM1RRNmRtRlVxSEZBZk9KYTZNc2JNODMxZWoKQmdCVnAyRjdOQURiWkptd2NaZ2pGUEVaeWpQb0cwQmdGQlZIV29zOENlZ3hsem5TMjAyZGo1SEJUeDVFdkZLSQo2TjJEUGhXU0tSTEl4YkkwWmVyb3BaWWlvNUpHWDR0NVJaQmd5YUVpY3lGd21zbFVRbkFPQ3RZSEd0UT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
-    server: https://CE38A6521A3C5EEBE685B1A81B71923C.gr7.us-west-2.eks.amazonaws.com
-  name: ridiculous-gopher-1607863527.us-west-2.eksctl.io
-- cluster:
-    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJeE1ERXhNVEl3TXpreU0xb1hEVE14TURFd09USXdNemt5TTFvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTXpDCkdsUHlRNWhrOWZoMjBrRjBUR2hIYVoxUmlncXFsMCtrbkQ3Wk0yNytCQnh4MWRyTzVKcHB2NlhiK3N4OVkvVGwKRW5MMG9RTDJSbmIyVjFjMGRidi82SytYTnA1RS9iQ2lkZUlQeVNZOUJOR0tRQkdEbXZ2NWJlcGpJallpZ05qVwpYY3VjbVhBeTNkZm5CNHV2M1QyY0hNV3h4aFhzRjlDV2o2ZFRqdE9sL2hwSGVXU1owd3E0eXpaVkcycHhTby8vCmJoRkhxSEo1Y081L1JKNzJKS1JhZXc5YVo2NXlrbncrbytJUFVqVnVVNjdkVys2dEd0WkRPSExWeGlub2wrREIKczRqM2xoZ0duMVdvSWVOTmNzcjVOQlZHV0t2eWUxWTZnekxsMCtqV1h0WS9zTno5MlYvSWliR2dyOCtzM29RYwpjZkdqK2hvY0JDeGp6L3c0ajhVQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFEWG5reWJ4RHlFM0ZQa0k3VzZ3SEVnSUxlQmoKQ2d1b1lVdkRxTlJwTkZjWTF2UVgzM0FJc3hLVzRhZzBvOHhkcERoQ3VXbDZYS09haUV3NXBmamJ4T1pqRUZsWAp1TWxpVTM3OXJ2MzA5a0o3NEUyU0piSmIwZk56WEVvMDU0cFNDWHpyeUFWV2ZRU0w4d3liRnhtWEVhdE5hY21BClUwcGhIQ0czemhJUFVUcUZvY0x0eXdkb0FYUWlzVEFXUHJLN1I4QUExYkd2Z2RaV1pPMWV5ZWN4K2FZY1NDRTIKR2p2aXRiRWtjcjRZcWtINTJ4MncrWVQxMTA0T0NEenQ0M2YwS3JhK0YwMzFBeVkybytKVkoyZk5oME0yRTJPVApNdGlrbHF6empsUTJvYXVIWlNlOG5TdEl1MVkvU1N1NENqNy9nYVk4YVM0QTh4d2RMYkE5cGE1eGxvQT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
-    server: https://1670B93BC11668D3274FEDCEBD4C2A1D.gr7.us-east-2.eks.amazonaws.com
-  name: starlink-cluster.us-east-2.eksctl.io
-- cluster:
     certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJeE1ERXlOekUzTWpRMU1sb1hEVE14TURFeU5URTNNalExTWxvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTTkyCm9zOXVHbkV6Vjk5NUFNWUZTdDk3VTlvVUF6dzNYYUhObWFndFRqRm5yR1hsZnRRQldVL3pzbk52ZnJ4K3BxdTUKai9vcnhBc0VrakFlWUFGeXZjdWhjOWh1TTErYkJFSUwrR2twRUVBZ05MbWRBdUcxZWZOMDFCWWRzTnlaN2E1eApPYXNQeHJUeFljUis5QXlyRngvMjdqK2VGbWh0Z09semp4MUN3ZjgzUDZOU2JxQmRzSGNsSTI4OHNBRUVBK20vCkdkY2lIQWxjbmw5N3c2Zk9wRjQ2eUtWaUdVWThrSE4wV2xxTGFnY1NqWGRlcHJGU2FkUndESzVEK2ZEcW5LV20KajBERE8vWDVrZUJwRXJxZUdzZFNxZ3JudVBFa3l0akxaZkpyWDdtTlFBRzdvL3JOZm1UKzI4Wk9qUXltajNDegprc1RWSHVrQnZJY25MUjZaMW84Q0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFDVnpOR3dWZmMvZE40NWdvZkhjenZUTHRGaHgKRU1lNklDdllRKzN5WW9iVndNUnJGMGprMzVjZkVkVDBLZmcwdzFlVVJWVlZzUk9UQlZ3eHJZVHZQM1oyVjhMYgovMUYyeU9pQ2NsUmtHUk9td1RvUXVhbytkUHRpeGg3MVpRV2I2cDA3Z2gwdHo5SWhWa0JjbmhhM05YTXdOcnB1CjRhQ1NXMU9yV2E0cEJRd1ExU0Y1MzgzUHhwUWRCZ3VOcm81djdSUnRwMVlLcHQxVXZ3WGM3bm5WdjdLWTA1L0UKWW01SmFYR0VxN3Y4WGFKVHdwYzMyenJ3Q0NqWlUrMk02WkZYQ3NYOEp5U2lPQkNxc2NJbUFJTHBmZ3lQc0c2awpkZWdRa0FhRkdEd2gzb2JFWFZSN1hTbXZPblVza2JpNnZ2NDlpUjduK3RNLzJOZGNNb1RyM0pCUmxyND0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
     server: https://343F39DD7FA0C8B01AF266CCA4AB629E.yl4.us-east-2.eks.amazonaws.com
   name: starlink-kube-cluster.us-east-2.eksctl.io
 contexts:
-- context:
-    cluster: iit-lab-cluster.us-east-2.eksctl.io
-    user: charith-iit-lab@iit-lab-cluster.us-east-2.eksctl.io
-  name: charith-iit-lab@iit-lab-cluster.us-east-2.eksctl.io
-- context:
-    cluster: ridiculous-gopher-1607863527.us-west-2.eksctl.io
-    user: charith-iit-lab@ridiculous-gopher-1607863527.us-west-2.eksctl.io
-  name: charith-iit-lab@ridiculous-gopher-1607863527.us-west-2.eksctl.io
-- context:
-    cluster: starlink-cluster.us-east-2.eksctl.io
-    user: charith-iit-lab@starlink-cluster.us-east-2.eksctl.io
-  name: charith-iit-lab@starlink-cluster.us-east-2.eksctl.io
 - context:
     cluster: starlink-kube-cluster.us-east-2.eksctl.io
     user: charith-iit-lab@starlink-kube-cluster.us-east-2.eksctl.io
@@ -37,51 +13,6 @@ current-context: charith-iit-lab@starlink-kube-cluster.us-east-2.eksctl.io
 kind: Config
 preferences: {}
 users:
-- name: charith-iit-lab@iit-lab-cluster.us-east-2.eksctl.io
-  user:
-    exec:
-      apiVersion: client.authentication.k8s.io/v1alpha1
-      args:
-      - eks
-      - get-token
-      - --cluster-name
-      - iit-lab-cluster
-      - --region
-      - us-east-2
-      command: aws
-      env:
-      - name: AWS_STS_REGIONAL_ENDPOINTS
-        value: regional
-- name: charith-iit-lab@ridiculous-gopher-1607863527.us-west-2.eksctl.io
-  user:
-    exec:
-      apiVersion: client.authentication.k8s.io/v1alpha1
-      args:
-      - eks
-      - get-token
-      - --cluster-name
-      - ridiculous-gopher-1607863527
-      - --region
-      - us-west-2
-      command: aws
-      env:
-      - name: AWS_STS_REGIONAL_ENDPOINTS
-        value: regional
-- name: charith-iit-lab@starlink-cluster.us-east-2.eksctl.io
-  user:
-    exec:
-      apiVersion: client.authentication.k8s.io/v1alpha1
-      args:
-      - eks
-      - get-token
-      - --cluster-name
-      - starlink-cluster
-      - --region
-      - us-east-2
-      command: aws
-      env:
-      - name: AWS_STS_REGIONAL_ENDPOINTS
-        value: regional
 - name: charith-iit-lab@starlink-kube-cluster.us-east-2.eksctl.io
   user:
     exec:
