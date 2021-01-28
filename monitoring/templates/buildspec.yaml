@@ -1,0 +1,29 @@
+version: 0.2
+phases:
+  install: # Install AWS cli, kubectl (needed for Helm) and Helm
+    commands:
+      - apt-get update
+      - apt install -y awscli git python3
+      - curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.12.7/2019-03-27/bin/linux/amd64/aws-iam-authenticator
+      - chmod +x ./aws-iam-authenticator
+      - mkdir -p ~/bin && cp ./aws-iam-authenticator ~/bin/aws-iam-authenticator && export PATH=~/bin:$PATH
+      - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+      - chmod +x kubectl
+      - mv ./kubectl /usr/local/bin/kubectl
+      - curl https://raw.githubusercontent.com/helm/helm/master/scripts/get | bash
+      - curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+      - chmod 700 get_helm.sh
+      - ./get_helm.sh
+  pre_build: # Add kubeconfig to access to EKS cluster
+    commands:
+      - "mkdir ~/.kube/"
+      - "cp kube/config ~/.kube/config"
+  build: # Build Docker image and tag it with the commit sha
+    commands:
+      - docker build -t starlink-monitoring-operations:latest .
+      - docker tag starlink-monitoring-operations:latest 571454663604.dkr.ecr.us-east-2.amazonaws.com/starlink-monitoring-operations:latest
+  post_build: # Push the Docker image to the ECR
+    commands:
+      - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 571454663604.dkr.ecr.us-east-2.amazonaws.com
+      - docker push starlink-monitoring-operations:latest
+      - "helm upgrade -f monitoring/env/values.yaml monitoring-restapp monitoring/ --set env.containers.image=starlink-monitoring-operations:latest"

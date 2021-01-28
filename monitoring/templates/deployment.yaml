@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: monitoring-microservice
+  namespace: starlink
+  labels:
+    app: monitoring-restapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: monitoring-restapp
+  template:  
+    metadata:
+      labels: 
+        app: monitoring-restapp
+    spec:
+      containers:
+        - name: monitoring-restapp
+          image: 571454663604.dkr.ecr.us-east-2.amazonaws.com/starlink-monitoring-operations:latest
+          ports: 
+            - containerPort: 8086          
+          env:
+            - name: spring.datasource.url
+              value: "jdbc:mysql://satellite-mysql.co1kethmgqbj.us-east-2.rds.amazonaws.com:3306/satellite?useSSL=true"                     
+            - name: spring.datasource.username
+              value: "root"        # RDS DB Username is dbadmin     
+            - name: spring.datasource.password
+              value: "Password.starlink.satellite"         
