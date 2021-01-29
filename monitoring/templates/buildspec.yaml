@@ -10,20 +10,23 @@ phases:
       - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
       - chmod +x kubectl
       - mv ./kubectl /usr/local/bin/kubectl
-      - curl https://raw.githubusercontent.com/helm/helm/master/scripts/get | bash
-      - curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
-      - chmod 700 get_helm.sh
-      - ./get_helm.sh
   pre_build: # Add kubeconfig to access to EKS cluster
     commands:
+      - echo Started pre building...
       - "mkdir ~/.kube/"
       - "cp kube/config ~/.kube/config"
+      - echo Finished pre building...
   build: # Build Docker image and tag it with the commit sha
     commands:
-      - docker build -t starlink-monitoring-operations:latest .
-      - docker tag starlink-monitoring-operations:latest 571454663604.dkr.ecr.us-east-2.amazonaws.com/starlink-monitoring-operations:latest
+      - echo Building docker image...
+      - docker build -t 571454663604.dkr.ecr.us-east-2.amazonaws.com/starlink-monitoring-operations:latest .
+      - docker tag 571454663604.dkr.ecr.us-east-2.amazonaws.com/starlink-monitoring-operations:latest 571454663604.dkr.ecr.us-east-2.amazonaws.com/starlink-monitoring-operations:latest
+      - echo Finished Building docker image...
   post_build: # Push the Docker image to the ECR
     commands:
+      - echo Started post building docker image...
       - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 571454663604.dkr.ecr.us-east-2.amazonaws.com
-      - docker push starlink-monitoring-operations:latest
-      - "helm upgrade -f monitoring/env/values.yaml monitoring-restapp monitoring/ --set env.containers.image=starlink-monitoring-operations:latest"
+      - docker push 571454663604.dkr.ecr.us-east-2.amazonaws.com/starlink-monitoring-operations:latest
+      - kubectl delete -f deployment.yaml
+      - kubectl apply -f deployment.yaml
+      - echo Finished post building docker image...
