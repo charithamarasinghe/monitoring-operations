@@ -1,107 +1,26 @@
 ---
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: starlink
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  namespace: starlink
-  name: starlink-ingress
-  annotations:
-    # Ingress core annotations
-    kubernetes.io/ingress.class: "alb"
-    alb.ingress.kubernetes.io/scheme: internet-facing
-spec:
-  rules:
-    - http:
-        paths:
-          - path: /MO/*
-            backend:
-              serviceName: monitoring-restapp-nodeport-service
-              servicePort: 8086
-          - path: /CO/*
-            backend:
-              serviceName: constellation-restapp-nodeport-service
-              servicePort: 8087
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: constellation-microservice
+  name: monitoring-microservice-green
   namespace: starlink
   labels:
-    app: constellation-restapp
+    app: monitoring-restapp-green
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: constellation-restapp
+      app: monitoring-restapp-green
   template:
     metadata:
       labels:
-        app: constellation-restapp
+        app: monitoring-restapp-green
     spec:
       containers:
-        - name: constellation-restapp
-          image: 571454663604.dkr.ecr.us-east-2.amazonaws.com/starlink-constellation-operations:latest
-          ports:
-            - containerPort: 8087
-          env:
-            - name: spring.datasource.url
-              value: "jdbc:mysql://constellation-mysql.co1kethmgqbj.us-east-2.rds.amazonaws.com:3306/constellation?useSSL=true"
-            - name: spring.datasource.username
-              value: "root"
-            - name: spring.datasource.password
-              value: "Password.starlink.constellation"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: constellation-restapp-nodeport-service
-  namespace: starlink
-  labels:
-    app: constellation-restapp
-spec:
-  type: NodePort
-  selector:
-    app: constellation-restapp
-  ports:
-    - port: 8087
-      targetPort: 8087
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: constellation-mysql
-  namespace: starlink
-spec:
-  type: ExternalName
-  externalName: constellation-mysql.co1kethmgqbj.us-east-2.rds.amazonaws.com
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: monitoring-microservice
-  namespace: starlink
-  labels:
-    app: monitoring-restapp
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: monitoring-restapp
-  template:
-    metadata:
-      labels:
-        app: monitoring-restapp
-    spec:
-      containers:
-        - name: monitoring-restapp
+        - name: monitoring-restapp-green
           image: 571454663604.dkr.ecr.us-east-2.amazonaws.com/starlink-monitoring-operations:latest
           ports:
-            - containerPort: 8086
+            - containerPort: 8088
           env:
             - name: spring.datasource.url
               value: "jdbc:mysql://satellite-mysql.co1kethmgqbj.us-east-2.rds.amazonaws.com:3306/satellite?useSSL=true"
@@ -113,22 +32,22 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: monitoring-restapp-nodeport-service
+  name: monitoring-restapp-nodeport-service-green
   namespace: starlink
   labels:
-    app: monitoring-restapp
+    app: monitoring-restapp-green
 spec:
   type: NodePort
   selector:
-    app: monitoring-restapp
+    app: monitoring-restapp-green
   ports:
-    - port: 8086
-      targetPort: 8086
+    - port: 8088
+      targetPort: 8088
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: satellite-mysql
+  name: satellite-mysql-green
   namespace: starlink
 spec:
   type: ExternalName
