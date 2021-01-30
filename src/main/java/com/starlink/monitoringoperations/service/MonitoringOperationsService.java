@@ -43,4 +43,8 @@ public class MonitoringOperationsService {
         satelliteInfoRepository.save(satelliteInfo);
     }
 
+    public void deleteSatellite(Integer satId) {
+        satelliteInfoRepository.deleteBySatelliteId(satId);
+    }
+
 }

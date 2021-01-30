@@ -17,4 +17,7 @@ public interface SatelliteInfoRepository extends JpaRepository<SatelliteInfo, Lo
     @Query(value="SELECT * FROM satellite_info where satellite_name = ?1", nativeQuery = true)
     List<SatelliteInfo> findBySatelliteName(String satelliteName);
 
+    @Query(value="DELETE FROM satellite_info where satellite_id = ?1", nativeQuery = true)
+    void deleteBySatelliteId(Integer satelliteId);
+
 }

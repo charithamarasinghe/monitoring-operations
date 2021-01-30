@@ -50,6 +50,10 @@ public class MonitoringOperationsController {
         return satelliteInfo;
     }
 
-
+    @GetMapping("/deleteSatBySatId")
+    public String deleteSatellite(@RequestBody Integer satId) {
+        monitoringOperationsService.deleteSatellite(satId);
+        return "DELETE SUCCESS";
+    }
 
 }

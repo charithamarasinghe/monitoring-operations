@@ -1,0 +1,54 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monitoring-microservice-green
+  namespace: starlink
+  labels:
+    app: monitoring-restapp-green
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: monitoring-restapp-green
+  template:
+    metadata:
+      labels:
+        app: monitoring-restapp-green
+    spec:
+      containers:
+        - name: monitoring-restapp-green
+          image: 571454663604.dkr.ecr.us-east-2.amazonaws.com/starlink-monitoring-operations:latest
+          ports:
+            - containerPort: 8086
+          env:
+            - name: spring.datasource.url
+              value: "jdbc:mysql://satellite-mysql.co1kethmgqbj.us-east-2.rds.amazonaws.com:3306/satellite?useSSL=true"
+            - name: spring.datasource.username
+              value: "root" # RDS DB Username is dbadmin
+            - name: spring.datasource.password
+              value: "Password.starlink.satellite"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: monitoring-restapp-nodeport-service-green
+  namespace: starlink
+  labels:
+    app: monitoring-restapp-green
+spec:
+  type: NodePort
+  selector:
+    app: monitoring-restapp-green
+  ports:
+    - port: 8086
+      targetPort: 8086
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: satellite-mysql-green
+  namespace: starlink
+spec:
+  type: ExternalName
+  externalName: satellite-mysql.co1kethmgqbj.us-east-2.rds.amazonaws.com
