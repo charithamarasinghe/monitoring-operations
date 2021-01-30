@@ -15,7 +15,7 @@ public class MonitoringOperationsController {
 
     @GetMapping("/healthCheck")
     public String healthCheck() {
-        return "SUCCESS";
+        return "BLUE-SUCCESS";
     }
 
     @GetMapping("/getAllSatPosInfo")
