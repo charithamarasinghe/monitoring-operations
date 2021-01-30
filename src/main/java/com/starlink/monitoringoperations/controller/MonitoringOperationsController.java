@@ -18,6 +18,11 @@ public class MonitoringOperationsController {
         return "BLUE-SUCCESS";
     }
 
+    @GetMapping("/testDeploy")
+    public String testDeploy() {
+        return "TEST SUCCESS";
+    }
+
     @GetMapping("/getAllSatPosInfo")
     public Iterable<SatellitePosInfo> getAllConstellationSatInfo() {
         return monitoringOperationsService.getAllSatPosInfo();
